@@ -4,8 +4,6 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 import Logo from '../img/fogo.png';
 
-
-
 export default function Logins() {
 
     // Seta se a senha estará visivel ou não
@@ -33,18 +31,21 @@ export default function Logins() {
                         style={styles.input}
                         placeholder='Informe sua Senha'
                         placeholderTextColor='#999'
-                        secureTextEntry={Eye}
+                        secureTextEntry={!Eye}
                     />
                 </View>
 
+            {/* MOstrar Senha */}
                 <TouchableOpacity style={styles.eye} onPress={() => SetEye(!Eye)}>
-                    {Eye ? <FontAwesome5 name="eye" size={24} color="#fff" /> : <FontAwesome5 name="eye-slash" size={24} color="#fff" />}
+                    {Eye ? <FontAwesome5 name="eye-slash" size={24} color="#fff" /> : <FontAwesome5 name="eye" size={24} color="#fff" />}
                 </TouchableOpacity>
 
+            {/* Entrar no APP */}
                 <TouchableOpacity style={styles.send}>
                     <Text style={styles.Font}>Entrar</Text>
                 </TouchableOpacity>
 
+            {/* Criar uma nova conta    */}
                 <TouchableOpacity style={styles.criarConta}>
                     <Text style={styles.Font}>Cadatrar uma Nova Conta</Text>
                 </TouchableOpacity>
