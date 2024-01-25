@@ -1,17 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Logins from './src/pages/Logins';
-import Folder from './src/pages/Folder';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator} from '@react-navigation/stack';
 import Screen from './src/functions/Screen';
 
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
 
   return (
-    <View style={styles.container}>
-      <Logins />
-      <StatusBar style="auto" />
-    </View>
+    // <NavigationContainer>
+    //   <Tab.Navigator>
+    //     <Tab.Screen name="Book" component={Book} />
+    //     <Tab.Screen name="Folder" component={Folder} />
+    //   </Tab.Navigator>
+    // </NavigationContainer>
+    // <NavigationContainer>
+    //   <Stack.Navigator>
+    //     <Stack.Screen name="Folder" component={Folder} />
+    //     <Stack.Screen name="Logins" component={Logins} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    <Screen/>
   );
 }
 

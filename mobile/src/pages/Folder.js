@@ -1,11 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Soma from '../functions/Soma'
+import React, { useState } from 'react'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import Tabs from '../functions/Tabs';
 
 export default function Folder() {
+  const Screen = useNavigation();
   return (
-    <View style={styles.container}>
-      <Soma Val1={2} Val2={3} />
+    <View>
+      <TouchableOpacity onPress={() => Screen.navigate('Logins')}>
+        <Text>Acessar Login</Text>
+      </TouchableOpacity>
     </View>
   );
 }

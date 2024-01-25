@@ -1,13 +1,26 @@
-import { StyleSheet, Text, View, Image, TextInput, Touchable, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { FontAwesome5 } from '@expo/vector-icons';
-
 import Logo from '../img/fogo.png';
+import { useNavigation } from '@react-navigation/native';
 
+
+// Tela de Login
 export default function Logins() {
+
+    const navigator = useNavigation();
+
+    // const navegation = useNavigation();
 
     // Seta se a senha estará visivel ou não
     const [Eye, SetEye] = useState();
+
+    // Email
+    const [Email] = useState();
+
+    // Senha
+    const [Senha] = useState();
+
 
     return (
         <View>
@@ -23,6 +36,7 @@ export default function Logins() {
                         keyboardType='email-address'
                         autoCapitalize='none'
                         autoCorrect={false}
+                        value={Email}
                     />
                 </View>
                 <View style={styles.form}>
@@ -32,24 +46,26 @@ export default function Logins() {
                         placeholder='Informe sua Senha'
                         placeholderTextColor='#999'
                         secureTextEntry={!Eye}
+                        value={Senha}
                     />
+                    {/* MOstrar Senha */}
+                    <TouchableOpacity style={styles.eye} onPress={() => SetEye(!Eye)}>
+                        {Eye ? <FontAwesome5 name="eye-slash" size={24} color="#fff" /> : <FontAwesome5 name="eye" size={24} color="#fff" />}
+                    </TouchableOpacity>
                 </View>
 
-            {/* MOstrar Senha */}
-                <TouchableOpacity style={styles.eye} onPress={() => SetEye(!Eye)}>
-                    {Eye ? <FontAwesome5 name="eye-slash" size={24} color="#fff" /> : <FontAwesome5 name="eye" size={24} color="#fff" />}
-                </TouchableOpacity>
 
-            {/* Entrar no APP */}
-                <TouchableOpacity style={styles.send}>
+                {/* Entrar no APP */}
+                <TouchableOpacity style={styles.send} onPress={() => navigator.navigate('Folder')}>
                     <Text style={styles.Font}>Entrar</Text>
                 </TouchableOpacity>
 
-            {/* Criar uma nova conta    */}
+                {/* Criar uma nova conta    */}
                 <TouchableOpacity style={styles.criarConta}>
                     <Text style={styles.Font}>Cadatrar uma Nova Conta</Text>
                 </TouchableOpacity>
             </View>
+
         </View>
     )
 }
@@ -75,7 +91,7 @@ const styles = StyleSheet.create({
 
     form: {
         marginTop: 20,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
 
     Font: {
@@ -112,8 +128,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    criarConta:{
+    criarConta: {
         marginTop: 70,
-    }
-
+    },
 })
