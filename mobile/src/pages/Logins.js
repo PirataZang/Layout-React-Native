@@ -56,7 +56,7 @@ export default function Logins() {
 
 
                 {/* Entrar no APP */}
-                <TouchableOpacity style={styles.send} onPress={() => navigator.navigate('Folder')}>
+                <TouchableOpacity style={styles.send} onPress={() => navigator.navigate('Tabs')}>
                     <Text style={styles.Font}>Entrar</Text>
                 </TouchableOpacity>
 
